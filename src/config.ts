@@ -9,9 +9,9 @@ export interface Config {
 
 const convictConfig = convict<Config>({
   dbUrl: {
+    default: 'mongodb://localhost/development',
     doc: 'mongodb url',
     env: 'DB_URL',
-    default: 'mongodb://localhost/development'
   }
 });
 

@@ -1,0 +1,48 @@
+{
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "indent": {
+            "severity": "error",
+            "options": [
+                "spaces", 2
+            ]
+        },
+        "interface-name": {
+            "severity": "error",
+            "options": [
+                "never-prefix"
+            ]
+        },
+        "member-access": {
+            "severity": "off"
+        },
+        "object-literal-sort-keys": {
+            "severity": "error",
+            "options": [
+                "shorthand-first"
+            ]
+        },
+        "only-arrow-functions": {
+            "severity": "error",
+            "options": [
+                "allow-named-functions"
+            ]
+        },
+        "ordered-imports": {
+            "severity": "off"
+        },
+        "quotemark": {
+            "severity": "error",
+            "options": [
+                "single", "avoid-escape", "avoid-template"
+            ]
+        },
+        "trailing-comma": {
+            "severity": "off"
+        }
+    },
+    "rulesDirectory": []
+}

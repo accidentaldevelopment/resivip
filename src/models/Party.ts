@@ -1,8 +1,8 @@
-import Base from "./Base";
-import { prop, arrayProp, pre } from "typegoose";
-import { Guest } from "./Guest";
+import Base from './Base';
+import { prop, arrayProp, pre } from 'typegoose';
+import { Guest } from './Guest';
 
-@pre<Party>('validate', function(next) {
+@pre<Party>('validate', function preValidateParty(next) {
   if (this.guests.length > this.maxSize) {
     this.invalidate('guests', 'Path `guests` cannot be longer than `maxSize` (' + this.maxSize + ')');
   }

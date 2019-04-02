@@ -4,6 +4,9 @@
   "author": "Brian Faga <brian@accidentaldevelopment.com>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "lint": "tslint --project tsconfig.json --verbose"
+  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
@@ -21,6 +24,7 @@
     "@types/mongoose": "^5.3.24",
     "@types/signale": "^1.2.1",
     "husky": "^1.3.1",
+    "ts-lint": "^4.5.1",
     "ts-node": "^8.0.3",
     "typescript": "^3.4.1"
   },
