@@ -1,12 +1,6 @@
 import { Typegoose, prop } from 'typegoose';
 
-export interface TimestampedDocument {
-  readonly createdAt: Date;
-
-  readonly updatedAt: Date;
-}
-
-export default class Base extends Typegoose implements TimestampedDocument {
+export default class Base extends Typegoose {
   @prop()
   readonly createdAt!: Date;
 
