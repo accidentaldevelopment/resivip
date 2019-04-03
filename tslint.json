@@ -4,6 +4,10 @@
     ],
     "jsRules": {},
     "rules": {
+        "array-type": {
+            "severity": "error",
+            "options": ["array"]
+        },
         "indent": {
             "severity": "error",
             "options": [
@@ -20,10 +24,7 @@
             "severity": "off"
         },
         "object-literal-sort-keys": {
-            "severity": "error",
-            "options": [
-                "shorthand-first"
-            ]
+            "severity": "off"
         },
         "only-arrow-functions": {
             "severity": "error",

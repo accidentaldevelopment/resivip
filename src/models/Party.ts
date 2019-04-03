@@ -1,13 +1,10 @@
 import Base from './Base';
 import { prop, arrayProp, pre } from 'typegoose';
 import { Guest } from './Guest';
+import { validateGuestLength, validateGuestUniqueness } from './validators';
 
-@pre<Party>('validate', function preValidateParty(next) {
-  if (this.guests.length > this.maxSize) {
-    this.invalidate('guests', 'Path `guests` cannot be longer than `maxSize` (' + this.maxSize + ')');
-  }
-  next();
-})
+@pre<Party>('validate', validateGuestLength)
+@pre<Party>('validate', validateGuestUniqueness)
 export class Party extends Base {
   @prop({required: true, min: 1})
   maxSize!: number;
