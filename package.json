@@ -5,9 +5,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "yarn test && tsc",
+    "build": "yarn lint && yarn test && tsc",
     "lint": "tslint --format verbose --project tsconfig.json",
-    "test": "nyc _mocha"
+    "test": "nyc _mocha",
+    "start": "ts-node src"
   },
   "mocha": {
     "spec": [ "test/**/*.ts" ],
