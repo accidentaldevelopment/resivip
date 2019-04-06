@@ -3,23 +3,10 @@ import config from './config';
 import signale from 'signale';
 import mongoose, { Mongoose } from 'mongoose';
 import PartyModel from './models/Party';
-import { ApolloServer, gql } from 'apollo-server';
+import { ApolloServer } from 'apollo-server';
 import { buildSchema } from 'type-graphql';
 import { PartyResolver } from './graphql/resolvers/PartyResolver';
 import { Container } from 'typedi';
-
-const typeDefs = gql`
-type Query {
-  parties: [Party!]!
-}
-type Party {
-  maxSize: Int!
-  guests: [Guest!]!
-}
-type Guest {
-  name: String!
-}
-`;
 
 let db: Mongoose;
 let server: ApolloServer;
