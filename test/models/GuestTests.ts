@@ -32,7 +32,7 @@ describe('GuestModel', () => {
           guests: [ {name: 'Aram'} ]
         });
         p.save((err) => {
-          expect(err.errmsg).to.match(/duplicate key error collection: development\.parties index: guests\.name/);
+          expect(err.errmsg).to.match(/duplicate key error collection: [^.]+\.parties index: guests\.name/);
           done();
         });
       });

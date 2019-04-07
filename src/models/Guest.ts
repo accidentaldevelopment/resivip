@@ -1,5 +1,6 @@
 import { prop } from 'typegoose';
 import { ObjectType, Field } from 'type-graphql';
+import { Meal } from './Meal';
 
 @ObjectType()
 export class Guest {
@@ -10,4 +11,8 @@ export class Guest {
   @prop({required: true, unique: true, sparse: true})
   @Field()
   name!: string;
+
+  @prop({enum: Meal})
+  @Field((type) => Meal)
+  meal?: Meal;
 }

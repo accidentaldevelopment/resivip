@@ -7,7 +7,7 @@
   "scripts": {
     "build": "yarn lint && yarn test && tsc",
     "lint": "tslint --format verbose --project tsconfig.json",
-    "test": "nyc _mocha",
+    "test": "DB_URL=mongodb://localhost/test nyc _mocha",
     "start": "ts-node src"
   },
   "mocha": {
