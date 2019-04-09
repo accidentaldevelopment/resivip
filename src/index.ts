@@ -31,7 +31,6 @@ async function main() {
   server = new ApolloServer({
     schema,
     context: ({req}): Context => {
-      console.log(config);
       if (!config.authenticationEnabled) {
         return <Context>{isLoggedIn: true};
       }

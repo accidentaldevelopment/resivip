@@ -2,7 +2,9 @@ import { registerEnumType } from 'type-graphql';
 
 export enum Meal {
   HALIBUT = 'Halibut',
-  STEAK = 'Steak'
+  STEAK = 'Steak',
+  VEGAN = 'Vegetarian/Vegan',
+  KIDS_MEAL = 'Kids Meal'
 }
 
 registerEnumType(Meal, {

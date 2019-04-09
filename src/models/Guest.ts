@@ -13,6 +13,6 @@ export class Guest {
   name!: string;
 
   @prop({enum: Meal})
-  @Field((type) => Meal)
+  @Field((type) => Meal, {nullable: true})
   meal?: Meal;
 }

@@ -8,7 +8,7 @@
     "build": "yarn lint && yarn test && tsc",
     "lint": "tslint --format verbose --project tsconfig.json",
     "test": "DB_URL=mongodb://localhost/test nyc _mocha",
-    "start": "ts-node src"
+    "start": "nodemon"
   },
   "mocha": {
     "spec": [
@@ -21,6 +21,19 @@
       "./node_modules/ts-node/register",
       "./node_modules/source-map-support/register"
     ]
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "ts-node src",
+    "ext": "ts"
   },
   "nyc": {
     "all": true,
@@ -52,13 +65,14 @@
     "@types/convict": "^4.2.1",
     "@types/graphql": "^14.2.0",
     "@types/mocha": "^5.2.6",
-    "@types/mongoose": "^5.3.24",
+    "@types/mongoose": "^5.3.25",
     "@types/signale": "^1.2.1",
     "chai": "^4.2.0",
     "husky": "^1.3.1",
-    "mocha": "^6.1.1",
+    "mocha": "^6.1.2",
+    "nodemon": "^1.18.11",
     "nyc": "^13.3.0",
-    "source-map-support": "^0.5.11",
+    "source-map-support": "^0.5.12",
     "ts-lint": "^4.5.1",
     "ts-node": "^8.0.3",
     "typescript": "^3.4.2"
@@ -68,7 +82,7 @@
     "class-validator": "^0.9.1",
     "convict": "^4.4.1",
     "graphql": "^14.2.1",
-    "mongoose": "^5.4.22",
+    "mongoose": "^5.5.0",
     "reflect-metadata": "^0.1.13",
     "signale": "^1.4.0",
     "type-graphql": "^0.17.1",
