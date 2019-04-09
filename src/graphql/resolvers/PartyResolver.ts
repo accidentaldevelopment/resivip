@@ -11,8 +11,9 @@ export class PartyResolver {
 
   @Query((returns) => [Party])
   async parties(@Ctx() ctx: Context) {
-    if (ctx.isLoggedIn)
+    if (ctx.isLoggedIn) {
       return await this.partyModel.find();
+    }
     throw new AuthenticationError('must be authenticated');
   }
 
@@ -23,8 +24,9 @@ export class PartyResolver {
 
   @Mutation((returns) => Party, {nullable: true})
   async addParty(@Ctx() ctx: Context, @Arg('party') newParty: NewPartyInput) {
-    if (ctx.isLoggedIn)
+    if (ctx.isLoggedIn) {
       return await this.partyModel.create(newParty);
+    }
     throw new AuthenticationError('must be authenticated');
   }
 }

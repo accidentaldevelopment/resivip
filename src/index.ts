@@ -32,7 +32,7 @@ async function main() {
     schema,
     context: ({req}): Context => {
       if (!config.authenticationEnabled) {
-        return <Context>{isLoggedIn: true};
+        return <Context> {isLoggedIn: true};
       }
 
       return {isLoggedIn: false};
