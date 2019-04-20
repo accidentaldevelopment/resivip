@@ -2,7 +2,7 @@ import Base from './Base';
 import { prop, arrayProp, pre } from 'typegoose';
 import { Guest } from './Guest';
 import { validateGuestLength, validateGuestUniqueness } from './validators';
-import { ObjectType, Field } from 'type-graphql';
+import { ObjectType, Field, Int } from 'type-graphql';
 
 @pre<Party>('validate', validateGuestLength)
 @pre<Party>('validate', validateGuestUniqueness)
@@ -13,7 +13,7 @@ export class Party extends Base {
   readonly _id?: string;
 
   @prop({required: true, min: 1})
-  @Field({description: 'Maximum number of guests allowed in this party.'})
+  @Field((type) => Int, {description: 'Maximum number of guests allowed in this party.'})
   maxSize!: number;
 
   @arrayProp({items: Guest})

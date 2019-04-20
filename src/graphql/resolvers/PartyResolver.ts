@@ -9,7 +9,7 @@ import NewPartyInput from '../inputs/NewPartyInput';
 export class PartyResolver {
   constructor(@Inject('partyModel') private readonly partyModel: typeof PartyModel) {}
 
-  @Query((returns) => [Party])
+  @Query((returns) => [Party], {description: 'Get a list of all parties.'})
   async parties(@Ctx() ctx: Context) {
     if (ctx.isLoggedIn) {
       return await this.partyModel.find();
@@ -17,12 +17,12 @@ export class PartyResolver {
     throw new AuthenticationError('must be authenticated');
   }
 
-  @Query((returns) => Party, {nullable: true})
+  @Query((returns) => Party, {nullable: true, description: "Find a party based on a guests's name."})
   async party(@Arg('guestName') guestName: string) {
     return await this.partyModel.findOne({'guests.name': guestName});
   }
 
-  @Mutation((returns) => Party, {nullable: true})
+  @Mutation((returns) => Party, {nullable: true, description: 'Add and save a new party.'})
   async addParty(@Ctx() ctx: Context, @Arg('party') newParty: NewPartyInput) {
     if (ctx.isLoggedIn) {
       return await this.partyModel.create(newParty);
