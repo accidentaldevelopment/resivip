@@ -4,6 +4,7 @@ import { Inject } from 'typedi';
 import Context from '../../context';
 import { AuthenticationError } from 'apollo-server';
 import NewPartyInput from '../inputs/NewPartyInput';
+import RsvpInput from '../inputs/RsvpInput';
 
 @Resolver(Party)
 export class PartyResolver {
@@ -28,5 +29,15 @@ export class PartyResolver {
       return await this.partyModel.create(newParty);
     }
     throw new AuthenticationError('must be authenticated');
+  }
+
+  @Mutation((returns) => Party, {description: 'Submit an RSVP with guests and meal selections.'})
+  async submitRsvp(@Arg('rsvp') rsvp: RsvpInput) {
+    const party = await this.partyModel.findById(rsvp._id);
+    if (party) {
+      party.guests = rsvp.guests;
+      return await party.save();
+    }
+    throw new Error(`party not found: ${rsvp._id}`);
   }
 }
