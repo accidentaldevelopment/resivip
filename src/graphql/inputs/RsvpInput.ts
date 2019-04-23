@@ -9,17 +9,17 @@ class StrictGuestInput {
   name!: string;
 
   @Field((type) => Meal)
-  meal!: Meal
+  meal!: Meal;
 }
 
 @InputType()
 export default class RsvpInput {
   @Field({description: '_id for the party, as returned by a party or parties query.'})
-  _id!: String;
+  _id!: string;
 
   @Field()
   isAttending!: boolean;
 
   @Field((type) => [StrictGuestInput])
-  guests!: Guest[]
+  guests!: Guest[];
 }
