@@ -73,16 +73,17 @@
     "nodemon": "^1.18.11",
     "nyc": "^14.0.0",
     "source-map-support": "^0.5.12",
-    "ts-lint": "^4.5.1",
     "ts-node": "^8.1.0",
-    "typescript": "^3.4.4"
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.4",
+    "typescript-tslint-plugin": "^0.3.1"
   },
   "dependencies": {
     "apollo-server": "^2.4.8",
     "class-validator": "^0.9.1",
     "convict": "^4.4.1",
     "graphql": "^14.2.1",
-    "mongoose": "^5.5.2",
+    "mongoose": "^5.5.3",
     "reflect-metadata": "^0.1.13",
     "signale": "^1.4.0",
     "type-graphql": "^0.17.1",
