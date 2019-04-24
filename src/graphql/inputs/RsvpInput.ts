@@ -1,5 +1,4 @@
 import { InputType, Field } from 'type-graphql';
-import GuestInput from './GuestInput';
 import { Guest } from '../../models/Guest';
 import { Meal } from '../../models/Meal';
 
@@ -12,9 +11,11 @@ class StrictGuestInput {
   meal!: Meal;
 }
 
+// tslint:disable-next-line:max-classes-per-file
 @InputType()
 export default class RsvpInput {
   @Field({description: '_id for the party, as returned by a party or parties query.'})
+  // tslint:disable-next-line:variable-name
   _id!: string;
 
   @Field()
