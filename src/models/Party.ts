@@ -23,6 +23,10 @@ export class Party extends Base {
 
 const PartyModel = new Party().getModelForClass(Party, {
   schemaOptions: {
+    collation: {
+      locale: 'en',
+      strength: 1
+    },
     timestamps: true
   }
 });
