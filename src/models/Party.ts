@@ -3,6 +3,8 @@ import { prop, arrayProp, pre } from 'typegoose';
 import { Guest } from './Guest';
 import { validateGuestLength, validateGuestUniqueness } from './validators';
 import { ObjectType, Field, Int } from 'type-graphql';
+import { Response } from './Response';
+import { response } from 'express';
 
 @pre<Party>('validate', validateGuestLength)
 @pre<Party>('validate', validateGuestUniqueness)
@@ -15,6 +17,10 @@ export class Party extends Base {
   @prop({required: true, min: 1})
   @Field((type) => Int, {description: 'Maximum number of guests allowed in this party.'})
   maxSize!: number;
+
+  @prop({enum: Response, default: Response.NO_RESPONSE})
+  @Field((type) => Response, { defaultValue: Response.NO_RESPONSE})
+  isAttending!: Response;
 
   @arrayProp({items: Guest})
   @Field((type) => [Guest], {description: 'List of guests in party.'})

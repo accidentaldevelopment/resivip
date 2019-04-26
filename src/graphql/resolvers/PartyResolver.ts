@@ -35,6 +35,7 @@ export class PartyResolver {
   async submitRsvp(@Arg('rsvp') rsvp: RsvpInput) {
     const party = await this.partyModel.findById(rsvp._id);
     if (party) {
+      party.isAttending = rsvp.isAttending;
       party.guests = rsvp.guests;
       return await party.save();
     }

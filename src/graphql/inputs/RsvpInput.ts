@@ -1,6 +1,7 @@
 import { InputType, Field } from 'type-graphql';
 import { Guest } from '../../models/Guest';
 import { Meal } from '../../models/Meal';
+import { Response } from '../../models/Response';
 
 @InputType()
 class StrictGuestInput {
@@ -18,8 +19,8 @@ export default class RsvpInput {
   // tslint:disable-next-line:variable-name
   _id!: string;
 
-  @Field()
-  isAttending!: boolean;
+  @Field((type) => Response)
+  isAttending!: Response;
 
   @Field((type) => [StrictGuestInput])
   guests!: Guest[];
