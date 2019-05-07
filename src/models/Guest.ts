@@ -15,4 +15,8 @@ export class Guest {
   @prop({enum: Meal})
   @Field((type) => Meal, {nullable: true})
   meal?: Meal;
+
+  @prop({required: false})
+  @Field({nullable: true})
+  notes?: string;
 }

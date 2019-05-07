@@ -10,6 +10,9 @@ class StrictGuestInput {
 
   @Field((type) => Meal)
   meal!: Meal;
+
+  @Field({nullable: true})
+  notes?: string;
 }
 
 // tslint:disable-next-line:max-classes-per-file
