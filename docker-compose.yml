@@ -4,7 +4,9 @@ services:
   mongo:
     image: mongo
   server:
-    build: .
+    build:
+      context: .
+      target: dev
     volumes:
       - .:/app
       - /app/node_modules
