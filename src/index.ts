@@ -8,6 +8,7 @@ import { buildSchema } from 'type-graphql';
 import { PartyResolver } from './graphql/resolvers/PartyResolver';
 import { Container } from 'typedi';
 import Context from './context';
+import { PingResolver } from './graphql/resolvers/PingResolver';
 
 let db: Mongoose;
 let server: ApolloServer;
@@ -24,7 +25,7 @@ async function main() {
   Container.set('partyModel', PartyModel);
 
   const schema = await buildSchema({
-    resolvers: [PartyResolver],
+    resolvers: [PingResolver, PartyResolver],
     container: Container
   });
 
