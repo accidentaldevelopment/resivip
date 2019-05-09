@@ -1,6 +1,6 @@
 {
   "name": "resivip",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "Brian Faga <brian@accidentaldevelopment.com>",
   "license": "MIT",
   "private": true,
@@ -37,13 +37,34 @@
   },
   "standard-version": {
     "types": [
-      {"type":"feat","section":"Features"},
-      {"type":"fix","section":"Bug Fixes"},
-      {"type":"test","section":"Tests"},
-      {"type":"docs","section":"Docs"},
-      {"type":"build","section":"Build System"},
-      {"type":"chore","section":"Chores"},
-      {"type":"ci","hidden":true}
+      {
+        "type": "feat",
+        "section": "Features"
+      },
+      {
+        "type": "fix",
+        "section": "Bug Fixes"
+      },
+      {
+        "type": "test",
+        "section": "Tests"
+      },
+      {
+        "type": "docs",
+        "section": "Docs"
+      },
+      {
+        "type": "build",
+        "section": "Build System"
+      },
+      {
+        "type": "chore",
+        "section": "Chores"
+      },
+      {
+        "type": "ci",
+        "hidden": true
+      }
     ]
   },
   "nyc": {
