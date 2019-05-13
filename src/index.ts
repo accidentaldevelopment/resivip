@@ -33,15 +33,7 @@ async function main() {
     schema,
     cors: process.env.NODE_ENV !== 'production',
     context: ({req}): Context => {
-      if (!config.authenticationEnabled) {
-        return {isLoggedIn: true};
-      }
-
-      // tslint:disable-next-line: max-line-length
-      if (req.header('X-Token') === '1xsjTkay6eGAdwCS+fI/Ypv/MqJlY2C3+IXm0/UPeevhfatOwp1poSbGBz0HZkAhHJbYqegctiICfZx9e8EL') {
-        return {isLoggedIn: true};
-      }
-      return {isLoggedIn: false};
+      return {isLoggedIn: true};
     }
   });
 
