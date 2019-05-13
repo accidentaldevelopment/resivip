@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/accidentaldevelopment/resivip/compare/v0.1.0...v0.2.0) (2019-05-13)
+
+
+### Features
+
+* disable cross-origin headers in production ([3f409c1](https://github.com/accidentaldevelopment/resivip/commit/3f409c1))
+* remove authn/authz for now ([6d8a6c3](https://github.com/accidentaldevelopment/resivip/commit/6d8a6c3))
+
+
+
 ## 0.1.0 (2019-05-09)
 
 
