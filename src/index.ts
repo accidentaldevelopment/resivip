@@ -31,6 +31,7 @@ async function main() {
 
   server = new ApolloServer({
     schema,
+    cors: process.env.NODE_ENV !== 'production',
     context: ({req}): Context => {
       if (!config.authenticationEnabled) {
         return {isLoggedIn: true};
