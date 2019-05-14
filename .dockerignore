@@ -2,6 +2,7 @@ node_modules
 *.log
 Dockerfile*
 docker-compose*
+/lib/
 .dockerignore
 .git
 .gitignore

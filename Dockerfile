@@ -1,23 +1,13 @@
-FROM node:alpine as dev
-
-EXPOSE 4000
+FROM node:alpine as builder
 
 WORKDIR /app
-
-ENV DB_URL=mongodb://mongo/development \
-    HOST=0.0.0.0 \
-    PORT=4000 \
-    ENABLE_AUTH=false
 
 COPY package.json yarn.lock ./
 RUN yarn install
 
 COPY . .
 
-CMD ["yarn", "start"]
-
-FROM dev as builder
-CMD ["yarn", "build"]
+RUN yarn tsc
 
 FROM node:alpine
 EXPOSE 4000
@@ -27,7 +17,8 @@ ENV DB_URL=mongodb://mongo/resivip \
     PORT=4000 \
     ENABLE_AUTH=true \
     NODE_ENV=production
-COPY --from=builder /app .
+COPY --from=builder /app/package.json .
 RUN yarn install --production \
   && yarn cache clean
+COPY --from=builder /app/lib/ lib/
 CMD ["node", "/app/lib"]

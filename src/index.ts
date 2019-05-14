@@ -37,6 +37,10 @@ async function main() {
     }
   });
 
+  process.on('SIGTERM', async () => {
+    if (db) { await server.stop(); }
+  });
+
   const info = await server.listen(config.port, config.host);
 
   signale.info('listening on %s:%d', info.address, info.port);
@@ -44,6 +48,9 @@ async function main() {
 
 main()
   .then(() => {
+    process.on('SIGTERM', async () => {
+      if (db) { await db.disconnect(); }
+    });
     signale.complete('startup complete');
   })
   .catch(async (e) => {
