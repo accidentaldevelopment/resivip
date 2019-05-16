@@ -4,7 +4,6 @@ import { Guest } from './Guest';
 import { validateGuestLength, validateGuestUniqueness } from './validators';
 import { ObjectType, Field, Int } from 'type-graphql';
 import { Response } from './Response';
-import { response } from 'express';
 
 @pre<Party>('validate', validateGuestLength)
 @pre<Party>('validate', validateGuestUniqueness)
@@ -13,6 +12,10 @@ export class Party extends Base {
   @Field()
   // tslint:disable-next-line:variable-name
   readonly _id?: string;
+
+  @prop({required: false, unique: true, sparse: true})
+  @Field((type) => String, {description: 'Arbitrary name of party.', nullable: true})
+  name!: string;
 
   @prop({required: true, min: 1})
   @Field((type) => Int, {description: 'Maximum number of guests allowed in this party.'})

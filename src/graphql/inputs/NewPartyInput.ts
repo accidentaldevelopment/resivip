@@ -5,6 +5,9 @@ import { Guest } from '../../models/Guest';
 
 @InputType({description: 'new party data'})
 export default class NewPartyInput implements Partial<Party> {
+  @Field((type) => String, {nullable: true})
+  name!: string;
+
   @Field((type) => Int)
   maxSize!: number;
 
