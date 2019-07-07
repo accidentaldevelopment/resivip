@@ -4,6 +4,7 @@ services:
   mongo:
     image: mongo
   server:
+    image: resivip
     build:
       context: .
       dockerfile: dev.dockerfile
