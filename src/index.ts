@@ -38,6 +38,7 @@ async function main() {
   });
 
   process.on('SIGTERM', async () => {
+    signale.info('shutting down');
     if (db) { await server.stop(); }
   });
 
@@ -46,9 +47,15 @@ async function main() {
   signale.info('listening on %s:%d', info.address, info.port);
 }
 
+signale.config({
+  displayDate: true,
+  displayTimestamp: true
+});
+
 main()
   .then(() => {
     process.on('SIGTERM', async () => {
+      signale.info('shutting down');
       if (db) { await db.disconnect(); }
     });
     signale.complete('startup complete');
