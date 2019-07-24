@@ -5,6 +5,7 @@ import Context from '../../context';
 import { AuthenticationError } from 'apollo-server';
 import NewPartyInput from '../inputs/NewPartyInput';
 import RsvpInput from '../inputs/RsvpInput';
+import { Response } from '../../models/Response';
 
 @Resolver(Party)
 export class PartyResolver {
@@ -40,5 +41,15 @@ export class PartyResolver {
       return await party.save();
     }
     throw new Error(`party not found: ${rsvp._id}`);
+  }
+
+  @Mutation((returns) => Party, {description: 'Submit an RSVP for guest not attending.'})
+  async submitNegativeRsvp(@Arg('id') id: string) {
+    const party = await this.partyModel.findById(id);
+    if (party) {
+      party.isAttending = Response.NOT_ATTENDING;
+      return await party.save();
+    }
+    throw new Error(`party not found: ${id}`);
   }
 }
