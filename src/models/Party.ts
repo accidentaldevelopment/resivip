@@ -21,7 +21,7 @@ export class Party extends Base {
   @Field((type) => Int, {description: 'Maximum number of guests allowed in this party.'})
   maxSize!: number;
 
-  @prop({enum: Response, default: Response.NO_RESPONSE})
+  @prop({default: Response.NO_RESPONSE})
   @Field((type) => Response, { defaultValue: Response.NO_RESPONSE})
   isAttending!: Response;
 
