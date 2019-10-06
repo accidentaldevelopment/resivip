@@ -122,6 +122,6 @@
     "signale": "^1.4.0",
     "type-graphql": "^0.17.5",
     "typedi": "^0.8.0",
-    "typegoose": "^5.9.1"
+    "@typegoose/typegoose": "^5.9.1"
   }
 }

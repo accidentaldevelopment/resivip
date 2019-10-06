@@ -19,7 +19,6 @@ interface AppContext {
 
 async function main() {
   signale.await('connecting to %s', config.dbUrl);
-  // @ts-ignore
   db = await mongoose.connect(config.dbUrl, {useNewUrlParser: true, useCreateIndex: true,
     useUnifiedTopology: true});
   signale.success('connected to %s', config.dbUrl);

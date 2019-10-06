@@ -1,5 +1,5 @@
 import Base from './Base';
-import { prop, arrayProp, pre } from 'typegoose';
+import { prop, arrayProp, pre } from '@typegoose/typegoose';
 import { Guest } from './Guest';
 import { validateGuestLength, validateGuestUniqueness } from './validators';
 import { ObjectType, Field, Int } from 'type-graphql';

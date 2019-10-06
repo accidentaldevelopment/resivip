@@ -1,5 +1,5 @@
 import PartyModel, { Party } from '../../src/models/Party';
-import { InstanceType } from 'typegoose';
+import { InstanceType } from '@typegoose/typegoose';
 import { expect } from 'chai';
 import { describe, it, beforeEach } from 'mocha';
 

@@ -1,4 +1,4 @@
-import { prop } from 'typegoose';
+import { prop } from '@typegoose/typegoose';
 import { ObjectType, Field } from 'type-graphql';
 import { Meal } from './Meal';
 

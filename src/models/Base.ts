@@ -1,4 +1,4 @@
-import { Typegoose, prop } from 'typegoose';
+import { Typegoose, prop } from '@typegoose/typegoose';
 import { Field, ObjectType } from 'type-graphql';
 
 @ObjectType({isAbstract: true})
