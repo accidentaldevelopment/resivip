@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://github.com/accidentaldevelopment/resivip/compare/v0.2.2...v0.2.3) (2019-10-18)
+
+
+### Features
+
+* add graphql query to decline rsvp ([a0bc17a](https://github.com/accidentaldevelopment/resivip/commit/a0bc17a8f4956a85c0040bd05022292ebc9d82aa))
+* upgrade typegoose and remove deprecated calls ([2a35f32](https://github.com/accidentaldevelopment/resivip/commit/2a35f32b2efecd2dc26b6d1d9f51b33c01e30f91))
+
+
+### Bug Fixes
+
+* log date and time ([2bf28eb](https://github.com/accidentaldevelopment/resivip/commit/2bf28eb9dfec304fa6fde4f5e713287da129f23b))
+
+
+### Build System
+
+* add image name to docker compose ([28da622](https://github.com/accidentaldevelopment/resivip/commit/28da622bed3a8698e787d2faa3c0249506733f56))
+* add teamcity reporter for mocha ([9030737](https://github.com/accidentaldevelopment/resivip/commit/9030737f5951eb5af5316cf71eef18c9bfd4b1c1))
+* move to new typegoose package ([1d276a9](https://github.com/accidentaldevelopment/resivip/commit/1d276a904b1af4c8fcf582db709c240b588a0fe0))
+* update deps ([877a71b](https://github.com/accidentaldevelopment/resivip/commit/877a71b7c9b745c65d4ff863ecc9c0fccd118576))
+* update deps ([80ed3df](https://github.com/accidentaldevelopment/resivip/commit/80ed3dfe3e78b14afb734790e6fe0079dd3029bb))
+* update deps ([2604052](https://github.com/accidentaldevelopment/resivip/commit/2604052d700ad4dd0516481fbb34b581ce665ac6))
+
 ### [0.2.2](https://github.com/accidentaldevelopment/resivip/compare/v0.2.1...v0.2.2) (2019-05-16)
 
 
