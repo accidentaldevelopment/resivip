@@ -95,7 +95,6 @@
     "@commitlint/config-conventional": "^8.2.0",
     "@types/chai": "^4.2.3",
     "@types/convict": "^4.2.1",
-    "@types/graphql": "^14.5.0",
     "@types/mocha": "^5.2.7",
     "@types/mongoose": "^5.5.21",
     "@types/signale": "^1.2.1",
@@ -113,7 +112,7 @@
     "typescript-tslint-plugin": "^0.5.4"
   },
   "dependencies": {
-    "@typegoose/typegoose": "^5.9.1",
+    "@typegoose/typegoose": "^6.0.4",
     "apollo-server": "^2.9.6",
     "class-validator": "^0.10.2",
     "convict": "^5.2.0",

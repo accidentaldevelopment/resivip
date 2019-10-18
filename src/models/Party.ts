@@ -1,5 +1,5 @@
 import Base from './Base';
-import { prop, arrayProp, pre } from '@typegoose/typegoose';
+import { prop, arrayProp, pre, getModelForClass } from '@typegoose/typegoose';
 import { Guest } from './Guest';
 import { validateGuestLength, validateGuestUniqueness } from './validators';
 import { ObjectType, Field, Int } from 'type-graphql';
@@ -30,7 +30,7 @@ export class Party extends Base {
   guests: Guest[] = [];
 }
 
-const PartyModel = new Party().getModelForClass(Party, {
+const PartyModel = getModelForClass(Party, {
   schemaOptions: {
     collation: {
       locale: 'en',

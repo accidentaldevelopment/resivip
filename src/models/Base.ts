@@ -2,7 +2,7 @@ import { Typegoose, prop } from '@typegoose/typegoose';
 import { Field, ObjectType } from 'type-graphql';
 
 @ObjectType({isAbstract: true})
-export default class Base extends Typegoose {
+export default class Base {
   /**
    * Creation timestamp.
    */
