@@ -1,10 +1,10 @@
 import PartyModel, { Party } from '../../src/models/Party';
-import { InstanceType } from '@typegoose/typegoose';
+import { DocumentType } from '@typegoose/typegoose';
 import { expect } from 'chai';
 import { describe, it, beforeEach } from 'mocha';
 
 describe('PartyModel', () => {
-  let party: InstanceType<Party>;
+  let party: DocumentType<Party>;
 
   beforeEach('setup', async () => {
     await PartyModel.deleteMany({});
