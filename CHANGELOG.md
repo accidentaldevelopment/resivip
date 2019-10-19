@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.4](https://github.com/accidentaldevelopment/resivip/compare/v0.2.3...v0.2.4) (2019-10-19)
+
+
+### Tests
+
+* fix broken tests ([2500795](https://github.com/accidentaldevelopment/resivip/commit/25007954c5d272b4017c46d5238f2793ea612d0e))
+
 ### [0.2.3](https://github.com/accidentaldevelopment/resivip/compare/v0.2.2...v0.2.3) (2019-10-18)
 
 
