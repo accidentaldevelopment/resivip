@@ -2,13 +2,13 @@ import { Resolver, Query, ObjectType, Field } from 'type-graphql';
 
 @ObjectType()
 class PingResult {
-  @Field(_type => Boolean)
+  @Field(__type => Boolean)
   r = true;
 }
 
 @Resolver()
 export class PingResolver {
-  @Query(_type => PingResult)
+  @Query(__type => PingResult)
   ping() {
     return { r: true };
   }

@@ -19,12 +19,15 @@ export function validateGuestLength(this: TypegooseDoc<Party>, next: NextFn) {
   next();
 }
 
-export function validateGuestUniqueness(this: TypegooseDoc<Party>, next: NextFn) {
+export function validateGuestUniqueness(
+  this: TypegooseDoc<Party>,
+  next: NextFn
+) {
   const names = new Set();
   const dupes: Partial<Guest>[] = [];
-  this.guests.forEach((guest) => {
+  this.guests.forEach(guest => {
     if (names.has(guest.name)) {
-      dupes.push({name: guest.name});
+      dupes.push({ name: guest.name });
     } else {
       names.add(guest.name);
     }

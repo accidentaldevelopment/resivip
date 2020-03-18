@@ -7,5 +7,5 @@ export enum Response {
 }
 
 registerEnumType(Response, {
-  name: 'Response'
+  name: 'Response',
 });

@@ -1,7 +1,7 @@
 import { prop } from '@typegoose/typegoose';
 import { Field, ObjectType } from 'type-graphql';
 
-@ObjectType({isAbstract: true})
+@ObjectType({ isAbstract: true })
 export default class Base {
   /**
    * Creation timestamp.

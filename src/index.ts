@@ -22,7 +22,7 @@ async function main() {
   db = await mongoose.connect(config.dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   });
   signale.success('connected to %s', config.dbUrl);
 
@@ -30,7 +30,7 @@ async function main() {
 
   const schema = await buildSchema({
     resolvers: [PingResolver, PartyResolver],
-    container: Container
+    container: Container,
   });
 
   server = new ApolloServer({
@@ -38,7 +38,7 @@ async function main() {
     cors: process.env.NODE_ENV !== 'production',
     context: (): Context => {
       return { isLoggedIn: true };
-    }
+    },
   });
 
   process.on('SIGTERM', async () => {
@@ -55,7 +55,7 @@ async function main() {
 
 signale.config({
   displayDate: true,
-  displayTimestamp: true
+  displayTimestamp: true,
 });
 
 main()

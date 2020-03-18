@@ -31,19 +31,19 @@ const convictConfig = convict<Config>({
   },
   port: {
     default: 4000,
-    env: 'PORT'
+    env: 'PORT',
   },
   authenticationEnabled: {
     default: process.env.NODE_ENV === 'production',
-    env: 'ENABLE_AUTH'
-  }
+    env: 'ENABLE_AUTH',
+  },
 });
 
 const config: Config = {
   dbUrl: convictConfig.get('dbUrl'),
   host: convictConfig.get('host'),
   port: convictConfig.get('port'),
-  authenticationEnabled: convictConfig.get('authenticationEnabled')
+  authenticationEnabled: convictConfig.get('authenticationEnabled'),
 };
 
 export { config as default };
