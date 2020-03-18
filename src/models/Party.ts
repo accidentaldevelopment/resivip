@@ -10,23 +10,27 @@ import { Response } from './Response';
 @ObjectType()
 export class Party extends Base {
   @Field()
-  // tslint:disable-next-line:variable-name
   readonly _id?: string;
 
-  @prop({required: false, unique: true, sparse: true})
-  @Field((type) => String, {description: 'Arbitrary name of party.', nullable: true})
+  @prop({ required: false, unique: true, sparse: true })
+  @Field(_type => String, {
+    description: 'Arbitrary name of party.',
+    nullable: true
+  })
   name!: string;
 
-  @prop({required: true, min: 1})
-  @Field((type) => Int, {description: 'Maximum number of guests allowed in this party.'})
+  @prop({ required: true, min: 1 })
+  @Field(_type => Int, {
+    description: 'Maximum number of guests allowed in this party.'
+  })
   maxSize!: number;
 
-  @prop({default: Response.NO_RESPONSE})
-  @Field((type) => Response, { defaultValue: Response.NO_RESPONSE})
+  @prop({ default: Response.NO_RESPONSE })
+  @Field(_type => Response, { defaultValue: Response.NO_RESPONSE })
   isAttending!: Response;
 
-  @arrayProp({items: Guest})
-  @Field((type) => [Guest], {description: 'List of guests in party.'})
+  @arrayProp({ items: Guest })
+  @Field(_type => [Guest], { description: 'List of guests in party.' })
   guests: Guest[] = [];
 }
 

@@ -8,23 +8,23 @@ class StrictGuestInput {
   @Field()
   name!: string;
 
-  @Field((type) => Meal)
+  @Field(_type => Meal)
   meal!: Meal;
 
-  @Field({nullable: true})
+  @Field({ nullable: true })
   notes?: string;
 }
 
-// tslint:disable-next-line:max-classes-per-file
 @InputType()
 export default class RsvpInput {
-  @Field({description: '_id for the party, as returned by a party or parties query.'})
-  // tslint:disable-next-line:variable-name
+  @Field({
+    description: '_id for the party, as returned by a party or parties query.'
+  })
   _id!: string;
 
-  @Field((type) => Response)
+  @Field(_type => Response)
   isAttending!: Response;
 
-  @Field((type) => [StrictGuestInput])
+  @Field(_type => [StrictGuestInput])
   guests!: Guest[];
 }

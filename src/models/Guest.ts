@@ -5,18 +5,17 @@ import { Meal } from './Meal';
 @ObjectType()
 export class Guest {
   @Field()
-  // tslint:disable-next-line:variable-name
   readonly _id?: string;
 
-  @prop({required: true, unique: true, sparse: true})
+  @prop({ required: true, unique: true, sparse: true })
   @Field()
   name!: string;
 
-  @prop({enum: Meal})
-  @Field((type) => Meal, {nullable: true})
+  @prop({ enum: Meal })
+  @Field(_type => Meal, { nullable: true })
   meal?: Meal;
 
-  @prop({required: false})
-  @Field({nullable: true})
+  @prop({ required: false })
+  @Field({ nullable: true })
   notes?: string;
 }

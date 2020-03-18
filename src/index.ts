@@ -19,8 +19,11 @@ interface AppContext {
 
 async function main() {
   signale.await('connecting to %s', config.dbUrl);
-  db = await mongoose.connect(config.dbUrl, {useNewUrlParser: true, useCreateIndex: true,
-    useUnifiedTopology: true});
+  db = await mongoose.connect(config.dbUrl, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+  });
   signale.success('connected to %s', config.dbUrl);
 
   Container.set('partyModel', PartyModel);
@@ -33,14 +36,16 @@ async function main() {
   server = new ApolloServer({
     schema,
     cors: process.env.NODE_ENV !== 'production',
-    context: ({req}): Context => {
-      return {isLoggedIn: true};
+    context: (): Context => {
+      return { isLoggedIn: true };
     }
   });
 
   process.on('SIGTERM', async () => {
     signale.info('shutting down');
-    if (db) { await server.stop(); }
+    if (db) {
+      await server.stop();
+    }
   });
 
   const info = await server.listen(config.port, config.host);
@@ -57,11 +62,15 @@ main()
   .then(() => {
     process.on('SIGTERM', async () => {
       signale.info('shutting down');
-      if (db) { await db.disconnect(); }
+      if (db) {
+        await db.disconnect();
+      }
     });
     signale.complete('startup complete');
   })
-  .catch(async (e) => {
+  .catch(async e => {
     signale.error(e);
-    if (db) { await db.disconnect(); }
+    if (db) {
+      await db.disconnect();
+    }
   });

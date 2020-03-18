@@ -9,9 +9,11 @@ import { Response } from '../../models/Response';
 
 @Resolver(Party)
 export class PartyResolver {
-  constructor(@Inject('partyModel') private readonly partyModel: typeof PartyModel) {}
+  constructor(
+    @Inject('partyModel') private readonly partyModel: typeof PartyModel
+  ) {}
 
-  @Query((returns) => [Party], {description: 'Get a list of all parties.'})
+  @Query(_returns => [Party], { description: 'Get a list of all parties.' })
   async parties(@Ctx() ctx: Context) {
     if (ctx.isLoggedIn) {
       return await this.partyModel.find();
@@ -19,12 +21,18 @@ export class PartyResolver {
     throw new AuthenticationError('must be authenticated');
   }
 
-  @Query((returns) => Party, {nullable: true, description: "Find a party based on a guests's name."})
+  @Query(_returns => Party, {
+    nullable: true,
+    description: "Find a party based on a guests's name."
+  })
   async party(@Arg('guestName') guestName: string) {
-    return await this.partyModel.findOne({'guests.name': guestName});
+    return await this.partyModel.findOne({ 'guests.name': guestName });
   }
 
-  @Mutation((returns) => Party, {nullable: true, description: 'Add and save a new party.'})
+  @Mutation(_returns => Party, {
+    nullable: true,
+    description: 'Add and save a new party.'
+  })
   async addParty(@Ctx() ctx: Context, @Arg('party') newParty: NewPartyInput) {
     if (ctx.isLoggedIn) {
       return await this.partyModel.create(newParty);
@@ -32,7 +40,9 @@ export class PartyResolver {
     throw new AuthenticationError('must be authenticated');
   }
 
-  @Mutation((returns) => Party, {description: 'Submit an RSVP with guests and meal selections.'})
+  @Mutation(_returns => Party, {
+    description: 'Submit an RSVP with guests and meal selections.'
+  })
   async submitRsvp(@Arg('rsvp') rsvp: RsvpInput) {
     const party = await this.partyModel.findById(rsvp._id);
     if (party) {
@@ -43,7 +53,9 @@ export class PartyResolver {
     throw new Error(`party not found: ${rsvp._id}`);
   }
 
-  @Mutation((returns) => Party, {description: 'Submit an RSVP for guest not attending.'})
+  @Mutation(_returns => Party, {
+    description: 'Submit an RSVP for guest not attending.'
+  })
   async submitNegativeRsvp(@Arg('id') id: string) {
     const party = await this.partyModel.findById(id);
     if (party) {

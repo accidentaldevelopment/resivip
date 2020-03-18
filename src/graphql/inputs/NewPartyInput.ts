@@ -3,14 +3,14 @@ import { Party } from '../../models/Party';
 import GuestInput from './GuestInput';
 import { Guest } from '../../models/Guest';
 
-@InputType({description: 'new party data'})
+@InputType({ description: 'new party data' })
 export default class NewPartyInput implements Partial<Party> {
-  @Field((type) => String, {nullable: true})
+  @Field(_type => String, { nullable: true })
   name!: string;
 
-  @Field((type) => Int)
+  @Field(_type => Int)
   maxSize!: number;
 
-  @Field((type) => [GuestInput], {nullable: true})
+  @Field(_type => [GuestInput], { nullable: true })
   guests?: Guest[];
 }
