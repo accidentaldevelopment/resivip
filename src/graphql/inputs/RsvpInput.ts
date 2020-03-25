@@ -8,7 +8,7 @@ class StrictGuestInput {
   @Field()
   name!: string;
 
-  @Field(__type => Meal)
+  @Field((__type) => Meal)
   meal!: Meal;
 
   @Field({ nullable: true })
@@ -22,9 +22,9 @@ export default class RsvpInput {
   })
   _id!: string;
 
-  @Field(__type => Response)
+  @Field((__type) => Response)
   isAttending!: Response;
 
-  @Field(__type => [StrictGuestInput])
+  @Field((__type) => [StrictGuestInput])
   guests!: Guest[];
 }

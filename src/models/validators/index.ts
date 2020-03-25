@@ -25,7 +25,7 @@ export function validateGuestUniqueness(
 ) {
   const names = new Set();
   const dupes: Partial<Guest>[] = [];
-  this.guests.forEach(guest => {
+  this.guests.forEach((guest) => {
     if (names.has(guest.name)) {
       dupes.push({ name: guest.name });
     } else {

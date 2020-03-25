@@ -13,24 +13,24 @@ export class Party extends Base {
   readonly _id?: string;
 
   @prop({ required: false, unique: true, sparse: true })
-  @Field(__type => String, {
+  @Field((__type) => String, {
     description: 'Arbitrary name of party.',
     nullable: true,
   })
   name!: string;
 
   @prop({ required: true, min: 1 })
-  @Field(__type => Int, {
+  @Field((__type) => Int, {
     description: 'Maximum number of guests allowed in this party.',
   })
   maxSize!: number;
 
   @prop({ default: Response.NO_RESPONSE })
-  @Field(__type => Response, { defaultValue: Response.NO_RESPONSE })
+  @Field((__type) => Response, { defaultValue: Response.NO_RESPONSE })
   isAttending!: Response;
 
   @arrayProp({ items: Guest })
-  @Field(__type => [Guest], { description: 'List of guests in party.' })
+  @Field((__type) => [Guest], { description: 'List of guests in party.' })
   guests: Guest[] = [];
 }
 

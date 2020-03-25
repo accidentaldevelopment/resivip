@@ -13,7 +13,7 @@ export class PartyResolver {
     @Inject('partyModel') private readonly partyModel: typeof PartyModel
   ) {}
 
-  @Query(__returns => [Party], { description: 'Get a list of all parties.' })
+  @Query((__returns) => [Party], { description: 'Get a list of all parties.' })
   async parties(@Ctx() ctx: Context) {
     if (ctx.isLoggedIn) {
       return await this.partyModel.find();
@@ -21,7 +21,7 @@ export class PartyResolver {
     throw new AuthenticationError('must be authenticated');
   }
 
-  @Query(__returns => Party, {
+  @Query((__returns) => Party, {
     nullable: true,
     description: "Find a party based on a guests's name.",
   })
@@ -29,7 +29,7 @@ export class PartyResolver {
     return await this.partyModel.findOne({ 'guests.name': guestName });
   }
 
-  @Mutation(__returns => Party, {
+  @Mutation((__returns) => Party, {
     nullable: true,
     description: 'Add and save a new party.',
   })
@@ -40,7 +40,7 @@ export class PartyResolver {
     throw new AuthenticationError('must be authenticated');
   }
 
-  @Mutation(__returns => Party, {
+  @Mutation((__returns) => Party, {
     description: 'Submit an RSVP with guests and meal selections.',
   })
   async submitRsvp(@Arg('rsvp') rsvp: RsvpInput) {
@@ -53,7 +53,7 @@ export class PartyResolver {
     throw new Error(`party not found: ${rsvp._id}`);
   }
 
-  @Mutation(__returns => Party, {
+  @Mutation((__returns) => Party, {
     description: 'Submit an RSVP for guest not attending.',
   })
   async submitNegativeRsvp(@Arg('id') id: string) {

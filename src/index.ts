@@ -68,7 +68,7 @@ main()
     });
     signale.complete('startup complete');
   })
-  .catch(async e => {
+  .catch(async (e) => {
     signale.error(e);
     if (db) {
       await db.disconnect();

@@ -10,6 +10,6 @@ export default class GuestInput implements Partial<Guest> {
   @Field({ nullable: true })
   notes?: string;
 
-  @Field(__type => Meal, { nullable: true })
+  @Field((__type) => Meal, { nullable: true })
   meal?: Meal;
 }
