@@ -1,5 +1,5 @@
 import Base from './Base';
-import { prop, arrayProp, pre, getModelForClass } from '@typegoose/typegoose';
+import { prop, pre, getModelForClass } from '@typegoose/typegoose';
 import { Guest } from './Guest';
 import { validateGuestLength, validateGuestUniqueness } from './validators';
 import { ObjectType, Field, Int } from 'type-graphql';
@@ -27,9 +27,9 @@ export class Party extends Base {
 
   @prop({ default: Response.NO_RESPONSE })
   @Field((__type) => Response, { defaultValue: Response.NO_RESPONSE })
-  isAttending!: Response;
+  isAttending: Response = Response.NO_RESPONSE;
 
-  @arrayProp({ items: Guest })
+  @prop({ type: Guest })
   @Field((__type) => [Guest], { description: 'List of guests in party.' })
   guests: Guest[] = [];
 }
