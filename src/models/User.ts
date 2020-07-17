@@ -1,6 +1,6 @@
-import { Typegoose, prop } from '@typegoose/typegoose';
+import { prop } from '@typegoose/typegoose';
 
-export class User extends Typegoose {
+export class User {
   @prop({ required: true, unique: true, _id: true })
   name!: string;
 }
