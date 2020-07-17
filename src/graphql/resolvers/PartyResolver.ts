@@ -35,7 +35,7 @@ export class PartyResolver {
   })
   async addParty(@Ctx() ctx: Context, @Arg('party') newParty: NewPartyInput) {
     if (ctx.isLoggedIn) {
-      return await this.partyModel.create(newParty);
+      return (await this.partyModel.create)<Partial<Party>>(newParty);
     }
     throw new AuthenticationError('must be authenticated');
   }
